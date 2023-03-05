@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-package feral.examples
-
 import cats.effect._
 import cats.effect.std.Random
 import feral.lambda._
@@ -29,6 +27,8 @@ import org.http4s.client.Client
 import org.http4s.dsl.Http4sDsl
 import org.http4s.ember.client.EmberClientBuilder
 import org.http4s.syntax.all._
+import cats.effect._
+import cats.implicits._
 
 /** For a gentle introduction, please look at the `KinesisLambda` first which
   * uses `IOLambda.Simple`.

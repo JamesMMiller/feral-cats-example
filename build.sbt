@@ -3,11 +3,10 @@ ThisBuild / scalaVersion := "2.13.10"
 
 val natchezVersion = "0.1.6"
 val http4sVersion = "0.23.12"
-lazy val root = (project in file("."))
+lazy val app = (project in file("."))
   .enablePlugins(LambdaJSPlugin)
   .settings(
-    name := "ferallambda",
-
+    name := "feral-cats-example",
     libraryDependencies ++= Seq(
       // JVM setup
       "org.typelevel" %% "feral-lambda" % "0.1.0-M13",
@@ -23,5 +22,5 @@ lazy val root = (project in file("."))
       "org.http4s" %%% "http4s-server" % http4sVersion,
       "org.http4s" %%% "http4s-dsl" % http4sVersion,
       "org.http4s" %%% "http4s-ember-client" % http4sVersion
-    ),
+    )
   )
