@@ -1,0 +1,19 @@
+service: feral-cats-example
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: eu-west-2
+package:
+  artifact: target/scala-2.13/npm-package/package.json
+	
+functions:
+  hello:
+    handler: index.http4sHandler
+    events:
+      - http:
+          path: foo
+          method: get
+      - http:
+          path: joke
+          method: get
