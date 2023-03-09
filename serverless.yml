@@ -6,7 +6,7 @@ provider:
   region: eu-west-2
 package:
   patterns:
-    -target/scala-2.13/npm-package/**	
+    -target/scala-2.13/npm-package/**
 functions:
   hello:
     handler: index.http4sHandler
