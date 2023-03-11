@@ -11,12 +11,12 @@ functions:
   foo:
     handler: index.http4sHandler
     events:
-      -http:
-        path: foo
+      -httpApi:
+        path: /foo
         method: get
   joke:
     handler: index.http4sHandler
     events: 
-      -http:
-        path: joke
+      -httpApi:
+        path: /joke
         method: get
