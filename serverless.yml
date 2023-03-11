@@ -4,19 +4,16 @@ provider:
   name: aws
   runtime: nodejs18.x
   region: eu-west-2
-package:
-  patterns:
-    -target/scala-2.13/npm-package/*
+# package:
+#   patterns:
+#     -target/scala-2.13/npm-package/*
 functions: 
-  foo:
+  routes:
     handler: index.http4sHandler
     events:
-      -httpApi:
-        path: /foo
-        method: get
-  joke:
-    handler: index.http4sHandler
-    events: 
-      -httpApi:
-        path: /joke
-        method: get
+      - httpApi:
+          path: /foo
+          method: get
+      - httpApi:
+          path: /joke
+          method: get
