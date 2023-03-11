@@ -1,6 +1,6 @@
 # feral-cats-example
 
-Example implementation with deployment via github actions and serverless of the feral cats http4s example provided in:
+Example implementation with deployment via github actions and serverless (although serverless seems to have a few issues with how feral works, will have to try out wit SAM or Lambda console perhaps) of the feral cats http4s example provided in:
 https://github.com/typelevel/feral/blob/main/examples/src/main/scala/feral/examples/Http4sLambda.scala
 
 Note: 
