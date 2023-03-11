@@ -16,9 +16,9 @@ jobs:
       with:
         node-version: 16
     - run: npm ci
-    - run: npm install -g serverless
     - run: sbt npmPackage
-    - run: (cd target/scala-2.13/npm-package/ && npm install)
+    - run: mv serverless.yml target/scala-2.13/npm-package/
+    - run: cd target/scala-2.13/npm-package/ && npm install
     - name: serverless deploy
       uses: serverless/github-action@v3.1
       with:
