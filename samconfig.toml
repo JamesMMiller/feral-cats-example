@@ -1,0 +1,12 @@
+version=0.1
+[default.global.parameters]
+stack_name = "common-stack"
+
+[default.deploy.parameters]
+stack_name = "my-app-stack"
+region = "eu-west-2"
+confirm_changeset = true
+
+[default.build.parameters]
+container_env_var = ["Function1.GITHUB_TOKEN=TOKEN1", "Function2.GITHUB_TOKEN=TOKEN2"]
+no_beta_features = true
