@@ -7,13 +7,16 @@ provider:
 package:
   patterns:
     -target/scala-2.13/npm-package/*
-functions:
-  hello:
+functions: 
+  foo:
     handler: index.http4sHandler
     events:
-      - http:
-          path: foo
-          method: get
-      - http:
-          path: joke
-          method: get
+      -http:
+        path: foo
+        method: get
+  joke:
+    handler: index.http4sHandler
+    events: 
+      -http:
+        path: joke
+        method: get
