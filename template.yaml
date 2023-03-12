@@ -1,0 +1,21 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Resources:        
+  FeralCatsExample:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: target/scala-2.13/npm-package/
+      Handler: index.http4sHandler
+      Runtime: nodejs18.x
+      Events:
+        fooApi:
+          Type: Api 
+          Properties:
+            Path: /foo
+            Method: get
+        jokeApi:
+          Type: Api 
+          Properties:
+            Path: /joke
+            Method: get
