@@ -8,6 +8,8 @@ Resources:
       CodeUri: target/scala-2.13/npm-package/
       Handler: index.http4sHandler
       Runtime: nodejs18.x
+      MemorySize: 1024
+      Timeout: 6
       Events:
         fooApi:
           Type: Api 
