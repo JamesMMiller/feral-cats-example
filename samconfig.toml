@@ -3,7 +3,7 @@ version=0.1
 stack_name = "common-stack"
 
 [default.deploy.parameters]
-stack_name = "my-app-stack"
+stack_name = "feral-cats-example"
 region = "eu-west-2"
 confirm_changeset = true
 
