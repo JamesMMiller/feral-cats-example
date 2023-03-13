@@ -1,6 +1,19 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 
+Parameters:
+  Stage:
+    Type: String
+    AllowedValues:
+      - dev
+      - prod
+
+Globals:
+  Function:
+    Environment:
+      Variables:
+        STAGE: !Ref Stage
+
 Resources:        
   FeralCatsExample:
     Type: AWS::Serverless::Function
