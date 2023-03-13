@@ -29,6 +29,8 @@ import org.http4s.ember.client.EmberClientBuilder
 import org.http4s.syntax.all._
 import cats.effect._
 import cats.implicits._
+import org.http4s.client.middleware.Logger
+import cats.MonadThrow
 
 /** For a gentle introduction, please look at the `KinesisLambda` first which
   * uses `IOLambda.Simple`.
@@ -75,14 +77,20 @@ object http4sHandler
   /** Nothing special about this method, including its existence, just an
     * example :)
     */
-  def myRoutes[F[_]: Concurrent: Trace](client: Client[F]): HttpRoutes[F] = {
+  def myRoutes[F[_]: Concurrent: Trace: MonadThrow](
+      client: Client[F]
+  ): HttpRoutes[F] = {
     implicit val dsl = Http4sDsl[F]
     import dsl._
 
     val routes = HttpRoutes.of[F] {
       case GET -> Root / "foo" => Ok("bar")
       case GET -> Root / "joke" =>
-        Ok(client.expect[String](uri"icanhazdadjoke.com"))
+        Ok(
+          client.expectOr[String](uri"icanhazdadjoke.com")(resp =>
+            MonadThrow[F].raiseError(new Throwable(resp.body.toString))
+          )
+        )
     }
 
     NatchezMiddleware.server(routes)
