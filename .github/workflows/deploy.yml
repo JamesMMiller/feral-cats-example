@@ -1,14 +1,16 @@
 name: Deploy main branch
 
 on:
-  environment:
-    description: 'Deployment Env'
-    required: true
-    default: 'dev'
-    type: choice
-    options:
-    - dev
-    - prod
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment Env'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+        - dev
+        - prod
 
 jobs:
   deploy:
