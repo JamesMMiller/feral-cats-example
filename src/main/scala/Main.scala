@@ -77,7 +77,7 @@ object http4sHandler
   /** Nothing special about this method, including its existence, just an
     * example :)
     */
-  def myRoutes[F[_]: Concurrent: Trace: MonadThrow](
+  def myRoutes[F[_]: Concurrent: Trace](
       client: Client[F]
   ): HttpRoutes[F] = {
     implicit val dsl = Http4sDsl[F]
@@ -87,9 +87,7 @@ object http4sHandler
       case GET -> Root / "foo" => Ok("bar")
       case GET -> Root / "get" =>
         Ok(
-          client.expectOr[String](uri"https://httpbin.org/get")(resp =>
-            MonadThrow[F].raiseError(new Throwable(resp.body.toString))
-          )
+          client.expect[String](uri"https://httpbin.org/get")
         )
     }
 

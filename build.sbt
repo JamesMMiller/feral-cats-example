@@ -13,7 +13,6 @@ lazy val app = (project in file("."))
 
       // Optional, specialized integrations, available for both JS and JVM
       "org.typelevel" %%% "feral-lambda-http4s" % "0.1.0-M13",
-      "org.typelevel" %%% "feral-lambda-cloudformation-custom-resource" % "0.1.0-M13",
 
       // For the example
       "org.tpolecat" %%% "natchez-xray" % natchezVersion,
