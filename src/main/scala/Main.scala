@@ -85,9 +85,9 @@ object http4sHandler
 
     val routes = HttpRoutes.of[F] {
       case GET -> Root / "foo" => Ok("bar")
-      case GET -> Root / "joke" =>
+      case GET -> Root / "get" =>
         Ok(
-          client.expectOr[String](uri"icanhazdadjoke.com")(resp =>
+          client.expectOr[String](uri"https://httpbin.org/get")(resp =>
             MonadThrow[F].raiseError(new Throwable(resp.body.toString))
           )
         )

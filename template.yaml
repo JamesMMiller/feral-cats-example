@@ -29,8 +29,8 @@ Resources:
           Properties:
             Path: /foo
             Method: get
-        jokeApi:
+        getApi:
           Type: Api 
           Properties:
-            Path: /joke
+            Path: /get
             Method: get
