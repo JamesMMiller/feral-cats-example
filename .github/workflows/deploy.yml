@@ -35,4 +35,4 @@ jobs:
       # Build inside Docker containers
       - run: sam build --use-container
       # Prevent prompts and failure when the stack is unchanged
-      - run: sam deploy --stack-name "feral-cats-example-${{ inputs.environment }}" --parameter-overrides ParameterKey=Stage,ParameterValue=${{ inputs.environment }} --no-confirm-changeset --no-fail-on-empty-changeset --resolve-s3 --capabilities CAPABILITY_IAM
+      - run: sam deploy --stack-name "feral-cats-example-${{ inputs.environment }}" --s3-prefix "${{ inputs.environment }}" --parameter-overrides ParameterKey=Stage,ParameterValue=${{ inputs.environment }} --no-confirm-changeset --no-fail-on-empty-changeset --resolve-s3 --capabilities CAPABILITY_IAM
